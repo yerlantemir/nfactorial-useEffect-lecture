@@ -9,6 +9,7 @@ function App() {
   const onNameChange = (event) => {
     setName(event.target.value);
   };
+  console.log('HELLO')
 
   return (
     <div className="App">

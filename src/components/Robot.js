@@ -1,30 +1,28 @@
 import { animated } from "react-spring";
 import "./robot.css";
 import { useAnimation } from "./animation";
-import { useState } from "react";
+import {useEffect, useRef, useState} from "react";
+import sound from "./sound.wav";
+import {AnotherComponent} from "./AnotherComponent";
 
-// const audio = new Audio(sound);
+const audio = new Audio(sound);
 
 export const Robot = (props) => {
   const { name } = props;
   const [angry, setAngry] = useState(false);
 
-  // ========ЭТО КОД ДЛЯ АНИМАЦИИ===============
-  const {
-    startAnimations,
-    stylesHead,
-    stylesRight,
-    stylesLeft,
-    stylesTors,
-    stylesAntenna,
-  } = useAnimation();
-  // ========================
+  useEffect(() => {
+    console.log('DALIDA')
+    audio.play();
+    return () => {
+      console.log('NARTAY');
+    }
+  }, [name])
 
-  startAnimations();
+  console.log('AIDAR')
 
-  console.log(angry);
   return (
-    <div className="root">
+    <div className="root" >
       <div className="robot">
         <animated.div style={stylesAntenna} className="antenna"></animated.div>
         <animated.div style={stylesHead} className="head">
